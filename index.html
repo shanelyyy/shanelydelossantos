@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Web Layout</title>
+
+    <style>
+        /* Container */
+        .container {
+            display: flex;
+            width: 100%;
+        }
+
+        /* Article */
+        article {
+            padding: 20px;
+            width: 70%;
+            background-color: pink;
+            min-height: 300px;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 30%;
+            background: skyblue;
+            padding: 20px;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .sidebar ul li a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: black;
+        }
+
+        .sidebar ul li a:hover {
+            background: red;
+            color: white;
+        }
+
+        /* Top Navigation */
+        ul.nav {
+            display: flex;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            background-color: blue;
+        }
+
+        ul.nav li {
+            position: relative;
+        }
+
+        ul.nav li a {
+            display: block;
+            color: white;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        ul.nav li a:hover {
+            background-color: skyblue;
+            color: black;
+        }
+
+        /* Dropdown */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: blue;
+            min-width: 160px;
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            padding: 12px 16px;
+            display: block;
+            color: white;
+        }
+
+        .dropdown-content a:hover {
+            background-color: skyblue;
+            color: black;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Header */
+        header {
+            background-color: skyblue;
+            padding: 5px;
+            text-align: center;
+            font-size: 35px;
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background-color: skyblue;
+            padding: 5px;
+            text-align: center;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h2>SDIHS</h2>
+    <h3 style="font-size:18px;">Santo Domingo Integrated High School</h3>
+</header>
+
+<!-- TOP NAVIGATION -->
+<ul class="nav">
+    <li><a href="#" onclick="loadContent('home')">Home</a></li>
+
+    <!-- ACTIVITIES DROPDOWN -->
+    <li class="dropdown">
+        <a href="#">Activities</a>
+        <div class="dropdown-content">
+            <a href="#" onclick="loadContent('activity1')">Activity 1</a>
+            <a href="#" onclick="loadContent('activity2')">Activity 2</a>
+            <a href="#" onclick="loadContent('activity3')">Activity 3</a>
+
+        </div>
+          
+        </div>
+    </li>
+
+    <!-- ASSESSMENT DROPDOWN -->
+    <li class="dropdown">
+        <a href="#">Assessment</a>
+        <div class="dropdown-content">
+            <a href="#" onclick="loadContent('assessment1')">Assessment 1</a>
+            <a href="#" onclick="loadContent('assessment2')">Assessment 2</a>
+            <a href="#" onclick="loadContent('assessment3')">Assessment 3</a>
+        </div>
+    </li>
+
+    <!-- REFERENCES DROPDOWN -->
+    <li class="dropdown">
+        <a href="#">References</a>
+        <div class="dropdown-content">
+            <a href="#" onclick="loadContent('reference1')">Reference 1</a>
+            <a href="#" onclick="loadContent('reference2')">Reference 2</a>
+        </div>
+    </li>
+
+    <!-- ABOUT DROPDOWN -->
+    <li class="dropdown">
+        <a href="#">About</a>
+        <div class="dropdown-content">
+            <a href="#" onclick="loadContent('about')">Group Members</a>
+        </div>
+    </li>
+</ul>
+
+
+<section>
+    <div class="container">
+
+        <!-- SIDEBAR -->
+        <nav class="sidebar">
+            <ul>
+                <li><a href="#" onclick="loadContent('content')">Content</a></li>
+                <li><a href="#" onclick="loadContent('performance')">Performance Standard</a></li>
+                <li><a href="#" onclick="loadContent('standard')">Content Standard</a></li>
+                <li><a href="#" onclick="loadContent('competencies')">Learning Competencies</a></li>
+                <li><a href="#" onclick="loadContent('objectives')">Objectives</a></li>
+            </ul>
+        </nav>
+
+
+<!-- MAIN CONTENT -->
+        <article id="content">
+            <h2>Mission</h2>
+            <p>
+                The mission of ICT is to deliver reliable, secure, and innovative technological
+                solutions that support and enhance communication, data management, and productivity
+                across the organization or community.
+            </p>
+
+            <h2>Vision</h2>
+            <p>
+                The vision is to lead innovation by creating a digitally connected, efficient,
+                and empowered environment through advanced technologies.
+            </p>
+
+            <h2>Core Values</h2>
+            <p>
+                MAKA-Diyos<br>
+                MAKA-Tao<br>
+                MAKA-Kalikasan<br>
+                MAKA-Bansa
+            </p>
+        </article>
+
+    </div>
+</section>
+
+<footer>
+    <p>© 2025 SDIHS</p>
+</footer>
+
+<script>
+function loadContent(section) {
+
+    const content = document.getElementById("content");
+
+    if (section === "home") {
+        content.innerHTML = `
+            <h2>Mission</h2>
+            <p>The mission of ICT is to deliver reliable, secure, and innovative technological solutions.</p>
+
+            <h2>Vision</h2>
+            <p>To create a digitally connected and empowered learning environment.</p>
+
+            <h2>Core Values</h2>
+            <p>
+                MAKA-Diyos<br>
+                MAKA-Tao<br>
+                MAKA-Kalikasan<br>
+                MAKA-Bansa
+            </p>
+        `;
+    }
+
+    else if (section === "about") {
+        content.innerHTML = `
+            <h2>Group Members</h2>
+            <ul>
+                <li><a href="https://www.facebook.com/Julleeyy" target="_blank">Bobis, Julie</a></li>
+                <li><a href="https://www.facebook.com/eldreynemarr.esplana" target="_blank">Esplana, Eldreyne</a></li>
+                <li><a href="https://www.facebook.com/share/1G3qc2rxeH/" target="_blank">Espinas, Xyrille </a></li>
+                <li><a href="https://www.facebook.com/gkiesha?mibextid=ZbWKwL" target="_blank">Gallard, Kiesha</a></li>
+                <li><a href="https://www.facebook.com/rymee.june?mibextid=ZbWKwL" target="_blank">Navarrete, Rymee June</a></li>
+            </ul>
+        `;
+    }
+
+    else if (section === "activity1") {
+        content.innerHTML = `
+            <h2>Activity 1</h2>
+            <p> <h1>ICT Activity: My First Word-Processed Document</h1>
+     <div class="section-title">Objectives</div>
+     <div class="content">
+         At the end of the activity, students should be able to:
+         <ol class="instructions-list">
+             <li>Identify the basic tools of a word processing system</li>
+             <li>Use a word processor to create a simple document</li>
+             <li>Apply basic formatting skills</li>
+         </ol>
+     </div>
+     <div class="section-title">Time Allotment</div>
+     <div class="content">45 minutes</div>
+     <div class="section-title">Materials Needed</div>
+     <div class="content">
+         <ul class="materials-list">
+             <li>Computer or laptop</li>
+             <li>Microsoft Word / Google Docs / LibreOffice Writer</li>
+         </ul>
+     </div>
+     <div class="section-title">Activity Proper (45 minutes)</div>
+     <div class="content">
+         <strong>Task:</strong> Create a Personal Information Sheet<br><br>
+         <strong>Instructions:</strong>
+         <ol class="task-instructions">
+             <li>Open your word processing application.</li>
+             <li>Create a new blank document.</li>
+             <li>Type the title: PERSONAL INFORMATION SHEET</li>
+             <li>Below the title, type the following information:
+                 <ul class="materials-list">
+                     <li>Full Name</li>
+                     <li>Age</li>
+                     <li>Grade & Section</li>
+                     <li>Favorite TLE Topic</li>
+                     <li>Short Goal in Life (2–3 sentences)</li>
+                 </ul>
+             </li>
+         </ol>
+         <br><strong>Formatting Requirements:</strong>
+         <ul class="materials-list">
+             <li>Title: Bold, size 18, centered</li>
+             <li>Content: Size 12, left-aligned</li>
+             <li>Font style: Arial or Calibri</li>
+             <li>Use bullet points for the information</li>
+             <li>Set margins to “Normal”</li>
+         </ul>
+         <br><strong>Saving the File:</strong><br>
+         Save as: TLE_PersonalInfo_YourName.docx
+     </div>
+     <div class="section-title">C. Sharing (10 minutes)</div>
+     <div class="content">Selected students will show their document and explain the tools they used.</div>
+     <div class="section-title">Evaluation (20 points)</div>
+     <div class="content">
+         <ul class="evaluation-list">
+             <li>Correct content – 5 pts</li>
+             <li>Proper formatting – 10 pts</li>
+             <li>File saved correctly – 5 pts</li>
+         </ul> </p>
+        `;
+    }
+
+else if (section === "activity2") {
+        content.innerHTML = `
+            <h2>Activity 2</h2>
+        <p>   <!-- Title -->
+     <h1 class="title">ICT Activity: Creating and Formatting a Word Processing Document</h1>
+     <!-- Activity Information Section -->
+     <hr style="margin: 30px 0;">
+     <p><strong>Unit:</strong> Word Processing<br>
+     <strong>Subject:</strong> ICT / TLE<br>
+     <strong>Time Allotment:</strong> 45 minutes</p>
+     <h3 style="font-size: 13px; font-weight: bold;">Objectives</h3>
+     <p>At the end of the activity, learners should be able to:</p>
+     <ol>
+         <li>Explain the purpose of a word processing system</li>
+         <li>Use basic word processing tools</li>
+         <li>Create and format a simple ICT document</li>
+     </ol>
+     <h3 style="font-size: 13px; font-weight: bold;">Materials Needed</h3>
+     <ul>
+         <li>Computer or laptop</li>
+         <li>Word processing software (Microsoft Word / Google Docs / LibreOffice Writer)</li>
+     </ul>
+     <h3 style="font-size: 13px; font-weight: bold;">Activity Proper</h3>
+     <h4 style="font-size: 12px; font-weight: bold;">A. Motivation</h4>
+     <p>Show examples of documents made using word processors (letters, reports, notices).<br>
+     Ask: "Why do we use word processors instead of handwriting documents?"</p>
+     <h4 style="font-size: 12px; font-weight: bold;">B. Main Activity - Task: ICT Student Profile Document</h4>
+     <p><strong>Instructions:</strong></p>
+     <ol>
+         <li>Open your word processing application.</li>
+         <li>Create a new blank document.</li>
+         <li>Type the title: ICT STUDENT PROFILE</li>
+         <li>Below the title, encode the required personal information.</li>
+     </ol>
+     <p><strong>Formatting Requirements:</strong></p>
+     <ul>
+         <li>Title: Bold, size 18, centered</li>
+         <li>Body text: Size 12, justified</li>
+         <li>Font style: Times New Roman or Arial</li>
+         <li>Line spacing: 1.5</li>
+         <li>Use bullet points for ICT skills</li>
+         <li>Insert the date at the upper right corner</li>
+     </ul>
+     <p><strong>File Saving:</strong><br>
+     Save the document as: ICT_WordProcessing_YourName.docx</p>
+     <h4 style="font-size: 12px; font-weight: bold;">C. Presentation & Reflection</h4>
+     <p>Students present their output and name at least 3 word processing tools they used.</p>
+     <h3 style="font-size: 13px; font-weight: bold;">Evaluation (20 points)</h3>
+     <ul>
+         <li>Complete content – 5 pts</li>
+         <li>Proper formatting – 10 pts</li>
+         <li>File name & saving – 5 pts</li>
+     </ul> </p>
+        `;
+    }
+    
+    else if (section === "activity3") {
+        content.innerHTML = `
+            <h2>Activity 3</h2>
+            <p>Details of Activity 3 go here.</p>
+        `;
+    }
+
+    else if (section === "assessment1") {
+        content.innerHTML = `
+            <h2>Assessment 1</h2>
+            <p><h1>TLE Assessment Quiz: Word Processing System</h1>
+
+    <!-- Student Information Section -->
+    <div class="student-details">
+        <p>Name: ________________________</p>
+        <p>Grade & Section: ______________</p>
+        <p>Date: ________________________</p>
+    </div>
+
+    <!-- Part I: Multiple Choice -->
+    <div class="section">
+        <h2>Part I. Multiple Choice</h2>
+        <p class="instruction">Encircle the letter of the correct answer.</p>
+        <div class="multiple-choice">
+            <ol>
+                <li>What is a word processing system?
+                    <ul class="options">
+                        <li>A. A device used to browse the internet</li>
+                        <li>B. A program used to create, edit, and format text documents</li>
+                        <li>C. A tool used to edit photos</li>
+                        <li>D. A program used to play videos</li>
+                    </ul>
+                </li>
+                <li>Which of the following is an example of a word processing application?
+                    <ul class="options">
+                        <li>A. Microsoft Excel</li>
+                        <li>B. Microsoft PowerPoint</li>
+                        <li>C. Microsoft Word</li>
+                        <li>D. Adobe Photoshop</li>
+                    </ul>
+                </li>
+                <li>Which feature allows you to change the font style and size?
+                    <ul class="options">
+                        <li>A. Spell Check</li>
+                        <li>B. Formatting tools</li>
+                        <li>C. Print Preview</li>
+                        <li>D. Save As</li>
+                    </ul>
+                </li>
+                <li>Which tool is used to correct spelling errors in a document?
+                    <ul class="options">
+                        <li>A. Grammar</li>
+                        <li>B. Thesaurus</li>
+                        <li>C. Spell Check</li>
+                        <li>D. Word Count</li>
+                    </ul>
+                </li>
+                <li>What function allows you to store your document for future use?
+                    <ul class="options">
+                        <li>A. Print</li>
+                        <li>B. Open</li>
+                        <li>C. Save</li>
+                        <li>D. Close</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- Part II: True or False -->
+    <div class="section">
+        <h2>Part II. True or False</h2>
+        <p class="instruction">Write TRUE if the statement is correct and FALSE if it is incorrect.</p>
+        <div class="true-false">
+            <ol start="6">
+                <li>A word processor can be used to create letters and reports.</li>
+                <li>Microsoft Word is not a word processing application.</li>
+                <li>You can insert images in a word processing document.</li>
+                <li>Spell Check helps correct grammar and spelling errors.</li>
+                <li>Documents created in a word processor cannot be printed.</li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- Part III: Identification -->
+    <div class="section">
+        <h2>Part III. Identification</h2>
+        <p class="instruction">Write the correct answer on the blank.</p>
+        <div class="identification">
+            <ol start="11">
+                <li>It is the feature used to arrange text to the left, right, center, or justify.
+                    → <span class="blank"></span></li>
+                <li>It allows users to add pictures into a document.
+                    → <span class="blank"></span></li>
+                <li>It shows how the document will look before printing.
+                    → <span class="blank"></span></li>
+                <li>It is the default file extension of Microsoft Word.
+                    → <span class="blank"></span></li>
+                <li>It refers to the space between lines of text in a document.
+                    → <span class="blank"></span></li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- Answer Key -->
+    <div class="answer-key">
+        <h3>Answer Key (For Teacher Use)</h3>
+        
+        <div class="answer-part">
+            <h4>Part I:</h4>
+            <p>1. B<br>2. C<br>3. B<br>4. C<br>5. C</p>
+        </div>
+
+        <div class="answer-part">
+            <h4>Part II:</h4>
+            <p>6. TRUE<br>7. FALSE<br>8. TRUE<br>9. TRUE<br>10. FALSE</p>
+        </div>
+
+        <div class="answer-part">
+            <h4>Part III:</h4>
+            <p>11. Text alignment<br>12. Insert picture / Insert image<br>13. Print Preview<br>14. .docx<br>15. Line spacing </p>
+        `;
+    }
+
+else if (section === "assessment2") {
+        content.innerHTML = `
+            <h2>Assessment 2</h2>
+            <p><h1>TLE Assessment Quiz #2: Word Processing System</h1>
+
+    <!-- Student Information Section -->
+    <div class="student-info">
+        <p>Name: ________________________</p>
+        <p>Grade & Section: ______________</p>
+        <p>Date: ________________________</p>
+    </div>
+
+    <!-- Part I: Multiple Choice -->
+    <div class="section">
+        <h2>Part I. Multiple Choice</h2>
+        <p>Choose the correct answer.</p>
+        <div class="multiple-choice">
+            <ol>
+                <li>Which of the following BEST describes a word processing system?
+                    <ul class="options">
+                        <li>A. A program used for calculations</li>
+                        <li>B. A system used to design graphics</li>
+                        <li>C. A system used to create and edit text documents</li>
+                        <li>D. A program used to browse websites</li>
+                    </ul>
+                </li>
+                <li>Which key is commonly used to make text bold?
+                    <ul class="options">
+                        <li>A. Ctrl + I</li>
+                        <li>B. Ctrl + U</li>
+                        <li>C. Ctrl + B</li>
+                        <li>D. Ctrl + S</li>
+                    </ul>
+                </li>
+                <li>Which feature allows you to add tables to your document?
+                    <ul class="options">
+                        <li>A. Format</li>
+                        <li>B. Insert</li>
+                        <li>C. Layout</li>
+                        <li>D. Review</li>
+                    </ul>
+                </li>
+                <li>Which tool helps you count the number of words in a document?
+                    <ul class="options">
+                        <li>A. Spell Check</li>
+                        <li>B. Word Count</li>
+                        <li>C. Find</li>
+                        <li>D. Replace</li>
+                    </ul>
+                </li>
+                <li>What happens when you click Save As?
+                    <ul class="options">
+                        <li>A. The document is deleted</li>
+                        <li>B. The document is printed</li>
+                        <li>C. A new copy of the document is created</li>
+                        <li>D. The document is closed</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- Part II: Matching Type -->
+    <div class="section">
+        <h2>Part II. Matching Type</h2>
+        <p>Match Column A with Column B. Write the letter of the correct answer.</p>
+        <table class="matching-table">
+            <thead>
+                <tr>
+                    <th>Column A</th>
+                    <th>Column B</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>6. Bold</td>
+                    <td>A. Checks spelling</td>
+                </tr>
+                <tr>
+                    <td>7. Print Preview</td>
+                    <td>B. Makes text thicker</td>
+                </tr>
+                <tr>
+                    <td>8. Spell Check</td>
+                    <td>C. Shows document before printing</td>
+                </tr>
+                <tr>
+                    <td>9. Alignment</td>
+                    <td>D. Arranges text position</td>
+                </tr>
+                <tr>
+                    <td>10. Save</td>
+                    <td>E. Stores the document</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Part III: Fill in the Blanks -->
+    <div class="section">
+        <h2>Part III. Fill in the Blanks</h2>
+        <p>Write the correct word to complete the sentence.</p>
+        <div class="fill-blanks">
+            <ol start="11">
+                <li>Microsoft Word documents are usually saved with the extension ________.</li>
+                <li>The __________ tool is used to insert pictures or shapes.</li>
+                <li>Line spacing controls the __________ between lines of text.</li>
+                <li>The __________ tab is used to check spelling and grammar.</li>
+                <li>A word processing system helps create professional __________.</li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- Answer Key -->
+    <div class="answer-key">
+        <h3>Answer Key (For Teacher Use)</h3>
+        
+        <div class="answer-section">
+            <h4>Part I:</h4>
+            <p>1. C<br>2. C<br>3. B<br>4. B<br>5. C</p>
+        </div>
+
+        <div class="answer-section">
+            <h4>Part II:</h4>
+            <p>6. B<br>7. C<br>8. A<br>9. D<br>10. E</p>
+        </div>
+
+        <div class="answer-section">
+            <h4>Part III:</h4>
+            <p>11. .docx<br>12. Insert<br>13. space<br>14. Review<br>15. documents</p>
+        `;
+    }
+
+    else if (section === "assessment3") {
+        content.innerHTML = `
+            <h2>Assessment 3</h2>
+            <p>Details of Assessment 3 go here.</p>
+        `;
+    }
+
+    else if (section === "reference1") {
+        content.innerHTML = `
+            <h2>Reference 1</h2>
+            <p>Details of Reference 1 go here.</p>
+        `;
+    }
+
+    else if (section === "reference2") {
+        content.innerHTML = `
+            <h2>Reference 2</h2>
+            <p>Details of Reference 2 go here.</p>
+        `;
+    }
+
+if (section === "content") {
+        content.innerHTML = `
+        <h2>Content</h2>
+        <p>
+        A word processing system is a software application or set of tools designed to create, edit, format, store, and print text-based documents. </p> <br>
+        <p>
+        1. Page Breaks
+A page break is a marker in a document that tells the word processor to end the current page and begin a new one. It control the layout of your document by starting new sections or chapters on a fresh page. </p> <br>
+        <p>
+        2. Auto Tables of Contents
+An automatic table of contents (TOC) is a list of the headings and subheadings in a document, automatically generated and updated by the word processor. It help readers navigate the document easily. </p> <br>
+        <p>
+        3. Mail Merge
+ Mail merge is a feature that allows you to create personalized documents (like letters, envelopes, or labels) for multiple recipients using a data source (like a spreadsheet or database). It helps to send out mass communications with personalized information. </p> <br>
+         <p>
+        4. References
+References are citations to sources used in a document, providing credit to the original authors and allowing readers to find the sources. It helps to avoid plagiarism and support your arguments with evidence.
+        </p>`;
+    }
+
+    else if (section === "performance") {
+        content.innerHTML = `
+        <h2>Performance Standard</h2>
+        <p>
+        The learners convert number systems in practical scenarios
+        </p>`;
+    }
+
+    else if (section === "standard") {
+        content.innerHTML = `
+        <h2>Content Standard</h2>
+        <p>
+        Demonstrate an understanding of using productivity software
+        </p>`;
+    }
+
+    else if (section === "competencies") {
+        content.innerHTML = `
+        <h2>Learning Competencies</h2>
+        <p>
+        Create word documents with page breaks, auto tables of contents, mail merge, and references
+        </p>`;
+    }
+
+    else if (section === "objectives") {
+        content.innerHTML = `
+        <h2>Objectives</h2>
+        <p>
+        At the end of this lesson, you are expected to: </p> <br>
+        <p>
+         1. Cite examples of open-source word processing software. </p> <br>
+         <p>
+        2. Discuss the functions of page breaks, auto tables, mail merge, and referencing in word processing software. </p> <br>
+         <p>
+       3. Use page breaks, auto tables of contents, mail merge, and references in creating Word document. </p> <br>
+         <p>
+   4. Appreciate the use of page breaks, auto tables of contents, mail merge, and references.
+        </p>`;
+    }
+}
+
+</script>
+
+</body>
+</html>
+
